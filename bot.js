@@ -42,7 +42,7 @@ client.on('message', msg => {
 
 	
 	if(msg.content.indexOf('好无聊啊') !== -1) {
-		msg.channel.send('指令列表：你是、你真、水果摊、生日快乐' )
+		msg.reply('指令列表：你是、你真、水果摊、生日快乐' )
 	}
 
 
