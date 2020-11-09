@@ -12,17 +12,19 @@ client.on('ready', () => {
 // 當 Bot 接收到訊息時的事件
 client.on('message', msg => {
 	//console.log(msg);
-
-	if (msg.content.indexOf('hello') !== -1 || msg.content.indexOf('Hello') !== -1) {
-		msg.reply('Hi!');
+	//当机器人提及
+	if (msg.isMentioned(client.user)) {
+    		if (msg.content.indexOf('hello') !== -1 || msg.content.indexOf('Hello') !== -1) {
+			msg.reply('Hi!');
+		}
+		if(msg.content.substring(0, 2) === "你是"){
+			msg.reply('你才是' + msg.content.substring(2) )
+		}
+		if(msg.content.substring(0, 2) === "你真"){
+			msg.reply('你更' + msg.content.substring(2) )
+		}
 	}
-
-	if(msg.content.substring(0, 2) === "你是"){
-		msg.reply('你才是' + msg.content.substring(2) )
-	}
-	if(msg.content.substring(0, 2) === "你真"){
-		msg.reply('你更' + msg.content.substring(2) )
-	}
+	
 
 	if (msg.content === 'fruits' || msg.content === '水果摊') {
 		msg.react('🍎')
