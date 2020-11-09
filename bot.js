@@ -59,6 +59,11 @@ client.on('message', msg => {
 		msg.channel.send('https://tenor.com/view/yuan-shan-shan-oh-no-unbelievable-gif-11900381' )
 		msg.react('👎');
 	}	
+	
+	if(msg.content.indexOf('滚') !== -1) {
+		msg.reply(':mega:我就不，你来咬我啊');
+		msg.channel.send('https://tenor.com/view/rude-come-bite-me-gif-12186286' )
+		msg.react('👎');
 
 });
 
