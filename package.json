@@ -1,16 +1,16 @@
 {
 
-  "name": "Example",
+  "name": "boring bot",
 
-  "description": "Example",
+  "description": "boring bot in discord",
 
   "version": "0.0.0",
 
-  "main": "bot.js",
+  "main": "discord.js",
 
   "scripts": {
 
-    "start": "node bot.js"
+    "start": "node discord.js"
 
   },
 
