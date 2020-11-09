@@ -1,6 +1,6 @@
-'use strict';
+
 const Discord = require('discord.js');
-const { token } = require('./token.json');
+// const { token } = require('./token.json');
 const client = new Discord.Client({disableEveryone: false});
 
 // 連上線時的事件
