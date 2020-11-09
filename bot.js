@@ -13,18 +13,18 @@ client.on('ready', () => {
 client.on('message', msg => {
 	//console.log(msg);
 
-    if (msg.content.indexOf('hello') !== -1 || msg.content.indexOf('Hello') !== -1) {
-        msg.reply('Hi!');
-    }
+	if (msg.content.indexOf('hello') !== -1 || msg.content.indexOf('Hello') !== -1) {
+		msg.reply('Hi!');
+	}
 
 	if(msg.content.substring(0, 2) === "你是"){
-	    msg.reply('你才是' + msg.content.substring(2) )
+		msg.reply('你才是' + msg.content.substring(2) )
 	}
 	if(msg.content.substring(0, 2) === "你真"){
-	    msg.reply('你更' + msg.content.substring(2) )
+		msg.reply('你更' + msg.content.substring(2) )
 	}
 
-    if (msg.content === 'fruits' || msg.content === '水果摊') {
+	if (msg.content === 'fruits' || msg.content === '水果摊') {
 		msg.react('🍎')
 			.then(() => msg.react('🍊'))
 			.then(() => msg.react('🍇'))
@@ -32,30 +32,33 @@ client.on('message', msg => {
 	}
 
 	if(msg.content.substring(0, 4) == "生日快乐"){
-	    msg.channel.send('https://tenor.com/view/happy-birthday-to-you-minions-singing-gif-15506821' )
+		msg.channel.send('https://tenor.com/view/happy-birthday-to-you-minions-singing-gif-15506821' )
 	}
 
 	if(msg.content.substring(0, 1) == "打"){
 		msg.channel.send(`@everyone 有人打 ${msg.content.substring(1)}？`);
-	    msg.channel.send('https://tenor.com/view/beaver-screaming-yelling-%E5%95%8A-what-gif-17769244' )
+		msg.channel.send('https://tenor.com/view/beaver-screaming-yelling-%E5%95%8A-what-gif-17769244' )
+	}
+
+	
+	if(msg.content.indexOf('!bb help') !== -1) {
+		msg.channel.send('指令列表：你是、你真、水果摊、生日快乐' )
 	}
 
 
 
-
-
 	//骂人是不好的
-    if(msg.content.indexOf('傻逼') !== -1) {
-    	msg.reply(':rofl:他急了他急了');
-    	msg.channel.send('https://tenor.com/view/avengers-language-gif-5285201' )
-    	msg.react('👎');
-    }	
+	if(msg.content.indexOf('傻逼') !== -1) {
+		msg.reply(':rofl:他急了他急了');
+		msg.channel.send('https://tenor.com/view/avengers-language-gif-5285201' )
+		msg.react('👎');
+	}	
 
-    if(msg.content.indexOf('就这') !== -1) {
-    	msg.reply(':mega:不会吧不会吧');
-    	msg.channel.send('https://tenor.com/view/yuan-shan-shan-oh-no-unbelievable-gif-11900381' )
-    	msg.react('👎');
-    }	
+	if(msg.content.indexOf('就这') !== -1) {
+		msg.reply(':mega:不会吧不会吧');
+		msg.channel.send('https://tenor.com/view/yuan-shan-shan-oh-no-unbelievable-gif-11900381' )
+		msg.react('👎');
+	}	
 
 });
 
