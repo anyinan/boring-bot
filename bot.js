@@ -41,7 +41,7 @@ client.on('message', msg => {
 	}
 
 	
-	if(msg.content.indexOf('!bb help') !== -1) {
+	if(msg.content.indexOf('bb help') !== -1) {
 		msg.channel.send('指令列表：你是、你真、水果摊、生日快乐' )
 	}
 
