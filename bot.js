@@ -17,11 +17,11 @@ client.on('message', msg => {
     		if (msg.content.indexOf('hello') !== -1 || msg.content.indexOf('Hello') !== -1) {
 			msg.reply('Hi!');
 		}
-		if(msg.content.substring(0, 2) === "你是"){
-			msg.reply('你才是' + msg.content.substring(2) )
+		if(msg.content.indexOf('你是') !== -1){
+			msg.reply('你才是' + msg.content.substring(msg.content.indexOf('你是') + 2) )
 		}
-		if(msg.content.substring(0, 2) === "你真"){
-			msg.reply('你更' + msg.content.substring(2) )
+		if(msg.content.indexOf('你真') !== -1){
+			msg.reply('你更' + msg.content.substring(msg.content.indexOf('你真') + 2) )
 		}
 	}
 	
