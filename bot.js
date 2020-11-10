@@ -22,11 +22,12 @@ client.on('message', msg => {
 	//当机器人被提及
 	if (msg.isMentioned(client.user)) {
 		
-		for (var key in dictionary) {
-			if (msg.content.indexOf(key) !== -1) {
+		Object.keys(dict).forEach(key => {
+			if(msg.content.indexOf(key) !== -1){
 				msg.reply(dict[key]);
 			}
-		}
+		})
+		
 		if(msg.content.indexOf('你是') !== -1){
 			msg.reply('你才是' + msg.content.substring(msg.content.indexOf('你是') + 2) )
 		}
