@@ -23,7 +23,7 @@ client.on('message', msg => {
 	if (msg.isMentioned(client.user)) {
 		
 		for (var key in dictionary) {
-			if (msg.content.indexOf(key.toLowerCase()) !== -1) {
+			if (msg.content.indexOf(key) !== -1) {
 				msg.reply(dict[key]);
 			}
 		}
