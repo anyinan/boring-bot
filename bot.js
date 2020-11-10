@@ -23,12 +23,9 @@ client.on('message', msg => {
 	if (msg.isMentioned(client.user)) {
 		
 		for (var key in dictionary) {
-			if (msg.content.indexOf(key..toLowerCase()) !== -1) {
+			if (msg.content.indexOf(key.toLowerCase()) !== -1) {
 				msg.reply(dict[key]);
 			}
-		}
-    		if (msg.content.indexOf('hello') !== -1 || msg.content.indexOf('Hello') !== -1) {
-			msg.reply('Hi!');
 		}
 		if(msg.content.indexOf('你是') !== -1){
 			msg.reply('你才是' + msg.content.substring(msg.content.indexOf('你是') + 2) )
