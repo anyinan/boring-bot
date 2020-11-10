@@ -9,11 +9,24 @@ client.on('ready', () => {
     console.log(`ready as Ann`);
 });
 
+//Bot聊天回复列表
+var dict = {
+	"hello" : "Hi" ,
+	"你好" : "您好",
+	"干啥呢" : "这不在群里值班嘛..." ,
+};
+
 // 當 Bot 接收到訊息時的事件
 client.on('message', msg => {
 	//console.log(msg);
-	//当机器人提及
+	//当机器人被提及
 	if (msg.isMentioned(client.user)) {
+		
+		for (var key in dictionary) {
+			if (msg.content.indexOf(key..toLowerCase()) !== -1) {
+				msg.reply(dict[key]);
+			}
+		}
     		if (msg.content.indexOf('hello') !== -1 || msg.content.indexOf('Hello') !== -1) {
 			msg.reply('Hi!');
 		}
