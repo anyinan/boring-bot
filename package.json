@@ -8,14 +8,6 @@
 
   "main": "bot.js",
   
-  "engines": {
-  
-    "node": "10.x",
-    
-    "npm": "*"
-  
-  },
-
   "scripts": {
 
     "start": "node bot.js"
@@ -26,7 +18,7 @@
 
     "discord.js": "12.4.1",
 
-    "request": "2.88.2"
+    "request": "2.81.0"
 
   }
 
