@@ -1,6 +1,6 @@
 
 const Discord = require('discord.js');
-// const { token } = require('./token.json');
+//const { token } = require('./token.json');
 const client = new Discord.Client({disableEveryone: false});
 
 // 連上線時的事件
@@ -26,7 +26,7 @@ var dict = {
 client.on('message', msg => {
 	//console.log(msg);
 	//当机器人被提及
-	if (msg.isMentioned(client.user)) {
+	if (msg.mentions.has(client.user)) {
 		
 		Object.keys(dict).forEach(key => {
 			if(msg.content.indexOf(key) !== -1){
@@ -49,15 +49,15 @@ client.on('message', msg => {
 		}
 	}
 	
-// 	var fruitEmojis = ['🍎','🍐','🍊','🍋','🍌','🍉','🍇','🍓','🍈','🍒','🍑','🥭','🍍','🥥','🥝'];
+	var fruitEmojis = ['🍐','🍊','🍋','🍉','🍇','🍓','🍈','🍒','🍑','🥭','🍍','🥥','🥝'];
 
-// 	if (msg.content === 'fruits' || msg.content === '水果摊') {
-// 		msg.react('🍏')
-// 		for (var i = 0; i < fruitEmojis.length; i++) {
-// 		  	.then(() => msg.react(fruitEmojis[i]))
-// 		}
-// 			.catch(() => console.error('One of the emojis failed to react.'));
-// 	}
+	if (msg.content === 'fruits' || msg.content === '水果摊') {
+		msg.react('🍏')
+		for (var i = 0; i < fruitEmojis.length; i++) {
+		  	 msg.react(fruitEmojis[i])
+		}
+			//.catch(() => console.error('One of the emojis failed to react.'));
+	}
 
 	if(msg.content.substring(0, 4) == "生日快乐"){
 		msg.channel.send('https://tenor.com/view/happy-birthday-to-you-minions-singing-gif-15506821' )
@@ -74,7 +74,7 @@ client.on('message', msg => {
 	}
 	
 	if(msg.content.indexOf('看看卡片啥效果') !== -1) {
-		const embed = new MessageEmbed()
+		const embed = new Discord.MessageEmbed()
 		// Set the title of the field
 		.setTitle('一个卡片的标题')
 		// Set the color of the embed
@@ -108,3 +108,4 @@ client.on('message', msg => {
 });
 
 client.login(process.env.BOT_TOKEN);
+//client.login(token);
