@@ -49,62 +49,62 @@ client.on('message', msg => {
 		}
 	}
 	
-	var fruitEmojis = ['🍐','🍊','🍋','🍉','🍇','🍓','🍈','🍒','🍑','🥭','🍍','🥥','🥝'];
+// 	var fruitEmojis = ['🍐','🍊','🍋','🍉','🍇','🍓','🍈','🍒','🍑','🥭','🍍','🥥','🥝'];
 
-	if (msg.content === 'fruits' || msg.content === '水果摊') {
-		msg.react('🍏')
-		for (var i = 0; i < fruitEmojis.length; i++) {
-		  	 msg.react(fruitEmojis[i])
-		}
-			//.catch(() => console.error('One of the emojis failed to react.'));
-	}
+// 	if (msg.content === 'fruits' || msg.content === '水果摊') {
+// 		msg.react('🍏')
+// 		for (var i = 0; i < fruitEmojis.length; i++) {
+// 		  	 msg.react(fruitEmojis[i])
+// 		}
+// 			//.catch(() => console.error('One of the emojis failed to react.'));
+// 	}
 
-	if(msg.content.substring(0, 4) == "生日快乐"){
-		msg.channel.send('https://tenor.com/view/happy-birthday-to-you-minions-singing-gif-15506821' )
-	}
+// 	if(msg.content.substring(0, 4) == "生日快乐"){
+// 		msg.channel.send('https://tenor.com/view/happy-birthday-to-you-minions-singing-gif-15506821' )
+// 	}
 
-	if(msg.content.substring(0, 1) == "打"){
-		msg.channel.send(`@everyone 有人打 ${msg.content.substring(1)}？`);
-		msg.channel.send('https://tenor.com/view/beaver-screaming-yelling-%E5%95%8A-what-gif-17769244' )
-	}
+// 	if(msg.content.substring(0, 1) == "打"){
+// 		msg.channel.send(`@everyone 有人打 ${msg.content.substring(1)}？`);
+// 		msg.channel.send('https://tenor.com/view/beaver-screaming-yelling-%E5%95%8A-what-gif-17769244' )
+// 	}
 
 	
-	if(msg.content.indexOf('好无聊啊') !== -1) {
-		msg.reply('指令列表：你是、你真、水果摊、生日快乐' )
-	}
+// 	if(msg.content.indexOf('好无聊啊') !== -1) {
+// 		msg.reply('指令列表：你是、你真、水果摊、生日快乐' )
+// 	}
 	
-	if(msg.content.indexOf('看看卡片啥效果') !== -1) {
-		const embed = new Discord.MessageEmbed()
-		// Set the title of the field
-		.setTitle('一个卡片的标题')
-		// Set the color of the embed
-		.setColor(0xff0000)
-		// Set the main content of the embed
-		.setDescription('这个卡片的内容');
-		// Send the embed to the same channel as the message
-		msg.channel.send(embed);
-	}
+// 	if(msg.content.indexOf('看看卡片啥效果') !== -1) {
+// 		const embed = new Discord.MessageEmbed()
+// 		// Set the title of the field
+// 		.setTitle('一个卡片的标题')
+// 		// Set the color of the embed
+// 		.setColor(0xff0000)
+// 		// Set the main content of the embed
+// 		.setDescription('这个卡片的内容');
+// 		// Send the embed to the same channel as the message
+// 		msg.channel.send(embed);
+// 	}
 
 
 
-	//骂人是不好的
-	if(msg.content.indexOf('傻逼') !== -1) {
-		msg.reply(':rofl:他急了他急了');
-		msg.channel.send('https://tenor.com/view/avengers-language-gif-5285201' )
-		msg.react('👎');
-	}	
+// 	//骂人是不好的
+// 	if(msg.content.indexOf('傻逼') !== -1) {
+// 		msg.reply(':rofl:他急了他急了');
+// 		msg.channel.send('https://tenor.com/view/avengers-language-gif-5285201' )
+// 		msg.react('👎');
+// 	}	
 
-	if(msg.content.indexOf('就这') !== -1) {
-		msg.reply(':mega:不会吧不会吧');
-		msg.channel.send('https://tenor.com/view/yuan-shan-shan-oh-no-unbelievable-gif-11900381' )
-		msg.react('👎');
-	}	
+// 	if(msg.content.indexOf('就这') !== -1) {
+// 		msg.reply(':mega:不会吧不会吧');
+// 		msg.channel.send('https://tenor.com/view/yuan-shan-shan-oh-no-unbelievable-gif-11900381' )
+// 		msg.react('👎');
+// 	}	
 	
-	if(msg.content.indexOf('滚') !== -1) {
-		msg.reply(':mega:我就不，你来咬我啊');
-		msg.channel.send('https://tenor.com/view/rude-come-bite-me-gif-12186286' )
-		msg.react('👎');
-	}
+// 	if(msg.content.indexOf('滚') !== -1) {
+// 		msg.reply(':mega:我就不，你来咬我啊');
+// 		msg.channel.send('https://tenor.com/view/rude-come-bite-me-gif-12186286' )
+// 		msg.react('👎');
+// 	}
 });
 
 client.login(process.env.BOT_TOKEN);
