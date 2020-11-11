@@ -73,7 +73,17 @@ client.on('message', msg => {
 		msg.reply('指令列表：你是、你真、水果摊、生日快乐' )
 	}
 	
-	
+	if(msg.content.indexOf('看看卡片啥效果') !== -1) {
+		const embed = new MessageEmbed()
+		// Set the title of the field
+		.setTitle('一个卡片的标题')
+		// Set the color of the embed
+		.setColor(0xff0000)
+		// Set the main content of the embed
+		.setDescription('这个卡片的内容');
+		// Send the embed to the same channel as the message
+		msg.channel.send(embed);
+	}
 
 
 
