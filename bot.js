@@ -40,6 +40,13 @@ client.on('message', msg => {
 		if(msg.content.indexOf('你真') !== -1){
 			msg.reply('你更' + msg.content.substring(msg.content.indexOf('你真') + 2) )
 		}
+		
+		if(msg.content.indexOf('成语接龙') !== -1) {
+			msg.reply('好啊，来一段成语接龙吧！ 我先来：为所欲为' )
+		}
+		if(msg.content.indexOf('为所欲为') !== -1) {
+			msg.reply('为所欲为' )
+		}
 	}
 	
 
@@ -64,12 +71,7 @@ client.on('message', msg => {
 		msg.reply('指令列表：你是、你真、水果摊、生日快乐' )
 	}
 	
-	if(msg.content.indexOf('成语接龙') !== -1) {
-		msg.reply('好啊，来一段成语接龙吧！ 我先来：为所欲为' )
-	}
-	if(msg.content.indexOf('为所欲为') !== -1) {
-		//msg.reply('为所欲为' )
-	}
+	
 
 
 
