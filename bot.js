@@ -49,12 +49,12 @@ client.on('message', msg => {
 		}
 	}
 	
-	let fruitEmojis = "🍎🍐🍊🍋🍌🍉🍇🍓🍈🍒🍑🥭🍍🥥🥝";
+	var fruitEmojis = ['🍎','🍐','🍊','🍋','🍌','🍉','🍇','🍓','🍈','🍒','🍑','🥭','🍍','🥥','🥝'];
 
 	if (msg.content === 'fruits' || msg.content === '水果摊') {
 		msg.react('🍏')
-		for (let i = 0; i < fruitEmojis.length; i++) {
-		  	.then(() => msg.react(fruitEmojis.charAt(i)))
+		for (var i = 0; i < fruitEmojis.length; i++) {
+		  	.then(() => msg.react(fruitEmojis[i]))
 		}
 			.catch(() => console.error('One of the emojis failed to react.'));
 	}
