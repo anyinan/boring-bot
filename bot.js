@@ -53,8 +53,8 @@ client.on('message', msg => {
 
 	if (msg.content === 'fruits' || msg.content === '水果摊') {
 		msg.react('🍏')
-		for (let c of fruitEmojis) {
-			.then(() => msg.react('c'))
+		for (let i = 0; i < fruitEmojis.length; i++) {
+		  	.then(() => msg.react(fruitEmojis.charAt(i)))
 		}
 			.catch(() => console.error('One of the emojis failed to react.'));
 	}
