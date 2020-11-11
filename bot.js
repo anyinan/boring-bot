@@ -49,15 +49,15 @@ client.on('message', msg => {
 		}
 	}
 	
-	var fruitEmojis = ['🍎','🍐','🍊','🍋','🍌','🍉','🍇','🍓','🍈','🍒','🍑','🥭','🍍','🥥','🥝'];
+// 	var fruitEmojis = ['🍎','🍐','🍊','🍋','🍌','🍉','🍇','🍓','🍈','🍒','🍑','🥭','🍍','🥥','🥝'];
 
-	if (msg.content === 'fruits' || msg.content === '水果摊') {
-		msg.react('🍏')
-		for (var i = 0; i < fruitEmojis.length; i++) {
-		  	.then(() => msg.react(fruitEmojis[i]))
-		}
-			.catch(() => console.error('One of the emojis failed to react.'));
-	}
+// 	if (msg.content === 'fruits' || msg.content === '水果摊') {
+// 		msg.react('🍏')
+// 		for (var i = 0; i < fruitEmojis.length; i++) {
+// 		  	.then(() => msg.react(fruitEmojis[i]))
+// 		}
+// 			.catch(() => console.error('One of the emojis failed to react.'));
+// 	}
 
 	if(msg.content.substring(0, 4) == "生日快乐"){
 		msg.channel.send('https://tenor.com/view/happy-birthday-to-you-minions-singing-gif-15506821' )
