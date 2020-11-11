@@ -79,7 +79,7 @@ client.on('message', msg => {
 		msg.reply(':mega:我就不，你来咬我啊');
 		msg.channel.send('https://tenor.com/view/rude-come-bite-me-gif-12186286' )
 		msg.react('👎');
-
+	}
 });
 
 client.login(process.env.BOT_TOKEN);
