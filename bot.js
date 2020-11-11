@@ -68,7 +68,7 @@ client.on('message', msg => {
 		msg.reply('好啊，来一段成语接龙吧！ 我先来：为所欲为' )
 	}
 	if(msg.content.indexOf('为所欲为') !== -1) {
-		msg.reply('为所欲为' )
+		//msg.reply('为所欲为' )
 	}
 
 
