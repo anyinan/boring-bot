@@ -49,11 +49,13 @@ client.on('message', msg => {
 		}
 	}
 	
+	let fruitEmojis = "🍎🍐🍊🍋🍌🍉🍇🍓🍈🍒🍑🥭🍍🥥🥝";
 
 	if (msg.content === 'fruits' || msg.content === '水果摊') {
-		msg.react('🍎')
-			.then(() => msg.react('🍊'))
-			.then(() => msg.react('🍇'))
+		msg.react('🍏')
+		for (let c of fruitEmojis) {
+			.then(() => msg.react('c'))
+		}
 			.catch(() => console.error('One of the emojis failed to react.'));
 	}
 
