@@ -48,6 +48,14 @@ client.on('message', msg => {
 		if(msg.content.indexOf('为所欲为') !== -1) {
 			msg.reply('为所欲为' )
 		}
+		if(msg.content.indexOf('谷歌一下') !== -1){
+			const request = require('request');
+			request('http://www.google.com', function (error, response, body) {
+				 console.error('error:', error); // Print the error if one occurred
+				 console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
+				 msg.reply('body' );
+			});   
+		}
 	}
 	
 	var fruitEmojis 	= ['🍐','🍊','🍋','🍉','🍇','🍓','🍈','🍒','🍑','🥭','🍍','🥥','🥝'];
