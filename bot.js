@@ -111,6 +111,7 @@ client.on('message', msg => {
 		.setImage('https://i.imgur.com/wSTFkRM.png')
 		.setTimestamp()
 		.setFooter('页脚在这里', 'https://i.imgur.com/wSTFkRM.png');
+		msg.channel.send(embed);
 	}
 
 
