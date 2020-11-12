@@ -121,22 +121,11 @@ client.on('message', msg => {
 		.setURL('https://discord.js.org/')
 		.setAuthor('The Chicken 咕咕哒', 'https://thechicken371095867.files.wordpress.com/2020/10/cropped-logo.png', 'https://thechicken.ca/')
 		.setDescription('来自中国的炸鸡风味，让你想起小时候的味道')
-		.setThumbnail('https://i.imgur.com/wSTFkRM.png')
+		.setThumbnail('https://thechicken371095867.files.wordpress.com/2020/10/cropped-logo.png')
 		.addFields(
-			{ name: '咕咕哒鸡肉汉堡', value: '                            |\ /| /|_/|
-                          |\||-|\||-/|/|
-                           \\|\|//||///
-          _..----.._       |\/\||//||||
-        .'     o    '.     |||\\|/\\ ||
-       /   o       o  \    | './\_/.' |
-      |o        o     o|   |          |
-      /'-.._o     __.-'\   |          |
-      \      `````     /   |          |
-      |``--........--'`|    '.______.'
-       \              /
-        `'----------'`', inline: true },
-			{ name: '咕咕哒炸鸡腿', value: '一些数据额', inline: true },
-			{ name: '咕咕哒整鸡', value: '一些数据额', inline: true },
+			{ name: '咕咕哒鸡肉汉堡', value: '好吃', inline: true },
+			{ name: '咕咕哒炸鸡腿', value: '好吃+1', inline: true },
+			{ name: '咕咕哒整鸡', value: '好吃+2', inline: true },
 		)
 		.setImage('https://www.masterpon.com/wp-content/uploads/b52chicken21-750x500.jpg')
 		.setTimestamp()
