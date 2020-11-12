@@ -116,7 +116,7 @@ client.on('message', msg => {
 	
 	if(msg.content.indexOf('最好吃的炸鸡') !== -1) {
 		const embed = new Discord.MessageEmbed()
-		.setColor('#0099ff')
+		.setColor('#ff9900')
 		.setTitle('大温地区最好吃的炸鸡！')
 		.setURL('https://discord.js.org/')
 		.setAuthor('The Chicken 咕咕哒', 'https://thechicken371095867.files.wordpress.com/2020/10/cropped-logo.png', 'https://thechicken.ca/')
