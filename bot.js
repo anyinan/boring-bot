@@ -95,14 +95,22 @@ client.on('message', msg => {
 	
 	if(msg.content.indexOf('看看卡片效果') !== -1) {
 		const embed = new Discord.MessageEmbed()
-		// Set the title of the field
-		.setTitle('一个卡片的标题')
-		// Set the color of the embed
-		.setColor(0xff0000)
-		// Set the main content of the embed
-		.setDescription('这个卡片的内容');
-		// Send the embed to the same channel as the message
-		msg.channel.send(embed);
+		.setColor('#0099ff')
+		.setTitle('标题在这里')
+		.setURL('https://discord.js.org/')
+		.setAuthor('名字在这里', 'https://i.imgur.com/wSTFkRM.png', 'https://discord.js.org')
+		.setDescription('描述在这里')
+		.setThumbnail('https://i.imgur.com/wSTFkRM.png')
+		.addFields(
+			{ name: '正常的Fields标题', value: '一些数据额' },
+			{ name: '\u200B', value: '\u200B' },
+			{ name: 'Fields标题', value: '一些数据额', inline: true },
+			{ name: 'Fields标题', value: '一些数据额', inline: true },
+		)
+		.addField('Inline field title', '一些数据额e', true)
+		.setImage('https://i.imgur.com/wSTFkRM.png')
+		.setTimestamp()
+		.setFooter('页脚在这里', 'https://i.imgur.com/wSTFkRM.png');
 	}
 
 
