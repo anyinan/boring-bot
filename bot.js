@@ -70,7 +70,7 @@ client.on('message', msg => {
 			
 			msg.channel.send(embed);
 			var lastMsg = msg.channel.lastMessage;
-// 			lastMsg.react('0️⃣');
+ 			lastMsg.react('0️⃣');
 // 				.then(() => lastMsg.react('1️⃣'))
 // 				.then(() => lastMsg.react('2️⃣'))
 // 				.then(() => lastMsg.react('3️⃣'))
