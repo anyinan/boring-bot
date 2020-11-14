@@ -48,27 +48,13 @@ client.on('message', msg => {
 		if(msg.content.indexOf('为所欲为') !== -1) {
 			msg.reply('为所欲为' )
 		}
-		
-		
-
-
-// 		//不是很会用这个 request......
-		
-// 		if(msg.content.indexOf('谷歌一下') !== -1){
-// 			const request = require('request');
-// 			request('http://www.google.com', function (error, response, body) {
-// 				 console.error('error:', error); // Print the error if one occurred
-// 				 console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-// 				 msg.reply(body);
-// 			});   
-// 		}
 	}
 	
 	
 	if(msg.content.indexOf('test') !== -1){
 		const ROLE_ASSIGN_CHANNEL_ID = "775196687408431135";
 		msg.channel.send(msg.channel.id == ROLE_ASSIGN_CHANNEL_ID);
-		var theRole = msg.guild.roles.cache..find(role => role.name === 'Among Us');
+		var theRole = msg.guild.roles.cache.find(role => role.name === 'Among Us');
 		if (!theRole) {
 	    		msg.channel.send("no role named among us")
 		} else {
