@@ -49,7 +49,7 @@ client.on('message', msg => {
 			msg.reply('为所欲为' )
 		}
 
-		//不是很会用这个 request......
+// 		//不是很会用这个 request......
 		
 // 		if(msg.content.indexOf('谷歌一下') !== -1){
 // 			const request = require('request');
@@ -59,6 +59,22 @@ client.on('message', msg => {
 // 				 msg.reply(body);
 // 			});   
 // 		}
+	}
+	
+	//为用户添加角色
+
+	//在discord 设置 -> 外观 -> 启用开发者模式， 然后右键需要检测的频道，复制ID
+	const ROLE_ASSIGN_CHANNEL_ID = "777267043161473045";
+	const ROLE_ASSIGN_KEYWORD = "role";
+
+	if (msg.channel.id == ROLE_ASSIGN_CHANNEL_ID) {
+		//检查是否为添加角色指令
+		if(msg.content.substring(0, ROLE_ASSIGN_KEYWORD.length) == ROLE_ASSIGN_KEYWORD){
+			var roleName = msg.content.substring(ROLE_ASSIGN_KEYWORD.length)
+			var role = msg.guild.roles.find(role => role.name === roleName);
+			msg.member.addRole(role); 
+		}
+
 	}
 	
 	var fruitEmojis 	= ['🍐','🍊','🍋','🍉','🍇','🍓','🍈','🍒','🍑','🥭','🍍','🥥','🥝'];
