@@ -72,6 +72,7 @@ client.on('message', msg => {
 		if(msg.content.substring(0, ROLE_ASSIGN_KEYWORD.length) == ROLE_ASSIGN_KEYWORD){
 			var roleName = msg.content.substring(ROLE_ASSIGN_KEYWORD.length)
 			var role = msg.guild.roles.find(role => role.name === roleName);
+			msg.channel.send(role.name)
 			msg.member.addRole(role); 
 		}
 
