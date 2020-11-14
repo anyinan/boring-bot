@@ -23,6 +23,9 @@ var dict = {
 	"下午好" : "起这么早啊，打工人" ,
 };
 
+var fruitEmojis 	= ['🍐','🍊','🍋','🍉','🍇','🍓','🍈','🍒','🍑','🥭','🍍','🥥','🥝'];
+var animalEmojis 	= ['🐭','🐹','🐰','🦊','🐻','🐼','🐨','🐯','🦁','🐸','🐵','🐘','🦛'];
+
 // 當 Bot 接收到訊息時的事件
 client.on('message', msg => {
 	//console.log(msg);
@@ -78,15 +81,11 @@ client.on('message', msg => {
 			if (!theRole) {
 				msg.reply("服务器里还没有叫 " + roleName + " 的标签。")
 			} else {
-				msg.member.addRole(theRole); 
+				msg.member.roles.add(theRole); 
 				msg.reply("你现在有了新的标签 " + theRole.name)
 			}
 		}
-
 	}
-	
-	var fruitEmojis 	= ['🍐','🍊','🍋','🍉','🍇','🍓','🍈','🍒','🍑','🥭','🍍','🥥','🥝'];
-	var animalEmojis 	= ['🐭','🐹','🐰','🦊','🐻','🐼','🐨','🐯','🦁','🐸','🐵','🐘','🦛'];
 	
 	if (msg.content === 'fruits' || msg.content === '水果摊') {
 		msg.react('🍏')
@@ -157,25 +156,6 @@ client.on('message', msg => {
 		msg.channel.send(embed);
 	}
 	
-	if(msg.content.indexOf('TheShy相亲') !== -1) {
-		const embed = new Discord.MessageEmbed()
-		.setColor('#ff9900')
-		.setTitle('The Shy 找女朋友')
-		.setURL('https://cdn.discordapp.com/attachments/775172912734142547/777104657537171466/20201114173615.jpg')
-		.setAuthor('点这里加我的微信', 'https://cdn.discordapp.com/attachments/775172912734142547/777104297175285770/20201114173428.jpg', 'https://cdn.discordapp.com/attachments/775172912734142547/777104657537171466/20201114173615.jpg')
-		.setDescription('一个有趣的灵魂，寻找另一个有趣的灵魂')
-		.setThumbnail('https://cdn.discordapp.com/attachments/775172912734142547/777104287922257920/20201114173418.jpg')
-		.addFields(
-			{ name: '附上我的照片', value: '--->', inline: true },
-		)
-		.setImage('https://cdn.discordapp.com/attachments/775172912734142547/777104293320720384/20201114173422.jpg')
-		.setTimestamp()
-		.setFooter('有趣的妹子请私信我');
-		msg.channel.send(embed);
-	}
-
-
-
 	//骂人是不好的
 	if(msg.content.indexOf('傻逼') !== -1) {
 		msg.reply(':rofl:他急了他急了');
