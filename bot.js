@@ -48,6 +48,14 @@ client.on('message', msg => {
 		if(msg.content.indexOf('为所欲为') !== -1) {
 			msg.reply('为所欲为' )
 		}
+		
+		if(msg.content.indexOf('test') !== -1){
+			const ROLE_ASSIGN_CHANNEL_ID = "777267043161473045";
+			var role = msg.guild.roles.find(role => role.name === "Among Us");
+			msg.channel.send(role.name)
+			msg.channel.send(msg.channel.id == ROLE_ASSIGN_CHANNEL_ID)
+		}
+
 
 // 		//不是很会用这个 request......
 		
@@ -61,22 +69,22 @@ client.on('message', msg => {
 // 		}
 	}
 	
-	//为用户添加角色
+// 	//为用户添加角色
 
-	//在discord 设置 -> 外观 -> 启用开发者模式， 然后右键需要检测的频道，复制ID
-	const ROLE_ASSIGN_CHANNEL_ID = "777267043161473045";
-	const ROLE_ASSIGN_KEYWORD = "role";
+// 	//在discord 设置 -> 外观 -> 启用开发者模式， 然后右键需要检测的频道，复制ID
+// 	const ROLE_ASSIGN_CHANNEL_ID = "777267043161473045";
+// 	const ROLE_ASSIGN_KEYWORD = "role";
 
-	if (msg.channel.id == ROLE_ASSIGN_CHANNEL_ID) {
-		//检查是否为添加角色指令
-		if(msg.content.substring(0, ROLE_ASSIGN_KEYWORD.length) == ROLE_ASSIGN_KEYWORD){
-			var roleName = msg.content.substring(ROLE_ASSIGN_KEYWORD.length)
-			var role = msg.guild.roles.find(role => role.name === roleName);
-			msg.channel.send(role.name)
-			msg.member.addRole(role); 
-		}
+// 	if (msg.channel.id == ROLE_ASSIGN_CHANNEL_ID) {
+// 		//检查是否为添加角色指令
+// 		if(msg.content.substring(0, ROLE_ASSIGN_KEYWORD.length) == ROLE_ASSIGN_KEYWORD){
+// 			var roleName = msg.content.substring(ROLE_ASSIGN_KEYWORD.length)
+// 			var role = msg.guild.roles.find(role => role.name === roleName);
+// 			msg.channel.send(role.name)
+// 			msg.member.addRole(role); 
+// 		}
 
-	}
+// 	}
 	
 	var fruitEmojis 	= ['🍐','🍊','🍋','🍉','🍇','🍓','🍈','🍒','🍑','🥭','🍍','🥥','🥝'];
 	var animalEmojis 	= ['🐭','🐹','🐰','🦊','🐻','🐼','🐨','🐯','🦁','🐸','🐵','🐘','🦛'];
