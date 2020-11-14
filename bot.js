@@ -69,7 +69,12 @@ client.on('message', msg => {
 			.setDescription(descrip);
 			
 			msg.channel.send(embed);
-				.then(message => message.react('0️⃣'))
+			var lastMsg = msg.channel.lastMessage;
+			lastMsg.react('0️⃣');
+				.then(() => message.react('1️⃣'))
+				.then(() => message.react('2️⃣'))
+				.then(() => message.react('3️⃣'))
+				.catch(() => console.error('One of the emojis failed to react.'));
 		}
 
 	}
