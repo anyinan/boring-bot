@@ -26,6 +26,8 @@ var dict = {
 var fruitEmojis 	= ['🍐','🍊','🍋','🍉','🍇','🍓','🍈','🍒','🍑','🥭','🍍','🥥','🥝'];
 var animalEmojis 	= ['🐭','🐹','🐰','🦊','🐻','🐼','🐨','🐯','🦁','🐸','🐵','🐘','🦛'];
 
+
+
 // 當 Bot 接收到訊息時的事件
 client.on('message', msg => {
 	//console.log(msg);
@@ -54,38 +56,41 @@ client.on('message', msg => {
 	}
 	
 	
-	if(msg.content.indexOf('test') !== -1){
-		const ROLE_ASSIGN_CHANNEL_ID = "775196687408431135";
-		msg.channel.send(msg.channel.id == ROLE_ASSIGN_CHANNEL_ID);
-		var theRole = msg.guild.roles.cache.find(role => role.name === 'Among Us');
-		if (!theRole) {
-	    		msg.channel.send("no role named among us")
-		} else {
-	    		msg.channel.send(theRole.name)
+	if(msg.content.indexOf('setup') !== -1){
+		if(msg.member.id == "363463165989617666"){
+			var descrip = "向此消息添加表情来获得身份标签： (beta)\n"
+			descrip += "\t0️⃣\tAmong Us\n";
+			descrip += "\t1️⃣\tCall of Duty\n";
+			descrip += "\t2️⃣\tLeague of Legends\n";
+			descrip += "\t3️⃣\tParty Animals\n";
+			const embed = new Discord.MessageEmbed()
+			.setColor('#ff9900')
+			.setDescription(descrip);
+			msg.channel.send(embed);
+			.then(message.react('0️⃣'))
 		}
-		
 
 	}
 	
 	//为用户添加角色
 
-	//在discord 设置 -> 外观 -> 启用开发者模式， 然后右键需要检测的频道，复制ID
-	const ROLE_ASSIGN_CHANNEL_ID = "777267043161473045";
-	const ROLE_ASSIGN_KEYWORD = "role";
+// 	//在discord 设置 -> 外观 -> 启用开发者模式， 然后右键需要检测的频道，复制ID
+// 	const ROLE_ASSIGN_CHANNEL_ID = "777267043161473045";
+// 	const ROLE_ASSIGN_KEYWORD = "role";
 
-	if (msg.channel.id == ROLE_ASSIGN_CHANNEL_ID) {
-		//检查是否为添加角色指令
-		if(msg.content.substring(0, ROLE_ASSIGN_KEYWORD.length) == ROLE_ASSIGN_KEYWORD){
-			var roleName = msg.content.substring(ROLE_ASSIGN_KEYWORD.length).trim()
-			var theRole = msg.guild.roles.cache.find(role => role.name === roleName);
-			if (!theRole) {
-				msg.reply("服务器里还没有叫 " + roleName + " 的标签。")
-			} else {
-				msg.member.roles.add(theRole); 
-				msg.reply("你现在有了新的标签 " + theRole.name)
-			}
-		}
-	}
+// 	if (msg.channel.id == ROLE_ASSIGN_CHANNEL_ID) {
+// 		//检查是否为添加角色指令
+// 		if(msg.content.substring(0, ROLE_ASSIGN_KEYWORD.length) == ROLE_ASSIGN_KEYWORD){
+// 			var roleName = msg.content.substring(ROLE_ASSIGN_KEYWORD.length).trim()
+// 			var theRole = msg.guild.roles.cache.find(role => role.name === roleName);
+// 			if (!theRole) {
+// 				msg.reply("服务器里还没有叫 " + roleName + " 的标签。")
+// 			} else {
+// 				msg.member.roles.add(theRole); 
+// 				msg.reply("你现在有了新的标签 " + theRole.name)
+// 			}
+// 		}
+// 	}
 	
 	if (msg.content === 'fruits' || msg.content === '水果摊') {
 		msg.react('🍏')
@@ -174,6 +179,32 @@ client.on('message', msg => {
 		msg.channel.send('https://tenor.com/view/rude-come-bite-me-gif-12186286' )
 		msg.react('👎');
 	}
+});
+
+var roleRef = {
+	"0️⃣" : "775231615190302730" ,
+	"1️⃣" : "777117598008475658",
+	"2️⃣" : "777116219064188948" ,
+	"3️⃣" : "777119364813553685" ,
+};
+
+client.on('messageReactionAdd', (reaction, user) => {
+        let message = reaction.message, emoji = reaction.emoji;
+	const ROLE_ASSIGN_MSG_ID = "777298548961312799";
+	if(message.id == ROLE_ASSIGN_MSG_ID){
+		Object.keys(roleRef).forEach(key => {
+			if(emoji.name == key){
+				message.guild.fetchMember(user.id).then(member => {
+					member.addRole(roleRef[KEY]);
+				});
+			}
+		})
+	}
+	
+        
+
+        // Remove the user's reaction
+        reaction.remove(user);
 });
 
 
