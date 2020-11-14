@@ -71,9 +71,9 @@ client.on('message', msg => {
 			msg.channel.send(embed);
 			var lastMsg = msg.channel.lastMessage;
 			lastMsg.react('0️⃣');
-				.then(() => message.react('1️⃣'))
-				.then(() => message.react('2️⃣'))
-				.then(() => message.react('3️⃣'))
+				.then(() => lastMsg.react('1️⃣'))
+				.then(() => lastMsg.react('2️⃣'))
+				.then(() => lastMsg.react('3️⃣'))
 				.catch(() => console.error('One of the emojis failed to react.'));
 		}
 
