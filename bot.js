@@ -80,23 +80,23 @@ client.on('message', msg => {
 	
 	//为用户添加角色
 
-// 	//在discord 设置 -> 外观 -> 启用开发者模式， 然后右键需要检测的频道，复制ID
-// 	const ROLE_ASSIGN_CHANNEL_ID = "777267043161473045";
-// 	const ROLE_ASSIGN_KEYWORD = "role";
+	//在discord 设置 -> 外观 -> 启用开发者模式， 然后右键需要检测的频道，复制ID
+	const ROLE_ASSIGN_CHANNEL_ID = "777267043161473045";
+	const ROLE_ASSIGN_KEYWORD = "role";
 
-// 	if (msg.channel.id == ROLE_ASSIGN_CHANNEL_ID) {
-// 		//检查是否为添加角色指令
-// 		if(msg.content.substring(0, ROLE_ASSIGN_KEYWORD.length) == ROLE_ASSIGN_KEYWORD){
-// 			var roleName = msg.content.substring(ROLE_ASSIGN_KEYWORD.length).trim()
-// 			var theRole = msg.guild.roles.cache.find(role => role.name === roleName);
-// 			if (!theRole) {
-// 				msg.reply("服务器里还没有叫 " + roleName + " 的标签。")
-// 			} else {
-// 				msg.member.roles.add(theRole); 
-// 				msg.reply("你现在有了新的标签 " + theRole.name)
-// 			}
-// 		}
-// 	}
+	if (msg.channel.id == ROLE_ASSIGN_CHANNEL_ID) {
+		//检查是否为添加角色指令
+		if(msg.content.substring(0, ROLE_ASSIGN_KEYWORD.length) == ROLE_ASSIGN_KEYWORD){
+			var roleName = msg.content.substring(ROLE_ASSIGN_KEYWORD.length).trim()
+			var theRole = msg.guild.roles.cache.find(role => role.name === roleName);
+			if (!theRole) {
+				msg.reply("服务器里还没有叫 " + roleName + " 的标签。")
+			} else {
+				msg.member.roles.add(theRole); 
+				msg.reply("你现在有了新的标签 " + theRole.name)
+			}
+		}
+	}
 	
 	if (msg.content === 'fruits' || msg.content === '水果摊') {
 		msg.react('🍏')
