@@ -51,9 +51,8 @@ client.on('message', msg => {
 		
 		if(msg.content.indexOf('test') !== -1){
 			const ROLE_ASSIGN_CHANNEL_ID = "775196687408431135";
-			var role = msg.guild.roles.find(role => role.name === "Among Us");
-			
-			if (typeof role === undefined) {
+			let role = member.guild.roles.get('Among Us');
+			if (!role) {
 			    msg.channel.send("no role named among us")
 			} else {
 			    msg.channel.send(role.name)
