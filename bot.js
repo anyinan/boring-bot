@@ -63,11 +63,12 @@ client.on('message', msg => {
 			descrip += "\t1️⃣\tCall of Duty\n";
 			descrip += "\t2️⃣\tLeague of Legends\n";
 			descrip += "\t3️⃣\tParty Animals\n";
+			
 			const embed = new Discord.MessageEmbed()
 			.setColor('#ff9900')
 			.setDescription(descrip);
+			
 			msg.channel.send(embed);
-			.then(message.react('0️⃣'))
 		}
 
 	}
@@ -188,19 +189,19 @@ var roleRef = {
 	"3️⃣" : "777119364813553685" ,
 };
 
-client.on('messageReactionAdd', (reaction, user) => {
-        let message = reaction.message, emoji = reaction.emoji;
-	const ROLE_ASSIGN_MSG_ID = "777298548961312799";
-	if(message.id == ROLE_ASSIGN_MSG_ID){
-		Object.keys(roleRef).forEach(key => {
-			if(emoji.name == key){
-				message.guild.fetchMember(user.id).then(member => {
-					member.addRole(roleRef[KEY]);
-				});
-			}
-		})
-	}
-});
+// client.on('messageReactionAdd', (reaction, user) => {
+//         let message = reaction.message, emoji = reaction.emoji;
+// 	const ROLE_ASSIGN_MSG_ID = "777298548961312799";
+// 	if(message.id == ROLE_ASSIGN_MSG_ID){
+// 		Object.keys(roleRef).forEach(key => {
+// 			if(emoji.name == key){
+// 				message.guild.fetchMember(user.id).then(member => {
+// 					member.addRole(roleRef[KEY]);
+// 				});
+// 			}
+// 		})
+// 	}
+// });
 
 
 client.login(process.env.BOT_TOKEN);
