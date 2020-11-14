@@ -200,11 +200,6 @@ client.on('messageReactionAdd', (reaction, user) => {
 			}
 		})
 	}
-	
-        
-
-        // Remove the user's reaction
-        reaction.remove(user);
 });
 
 
