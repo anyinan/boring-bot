@@ -138,7 +138,7 @@ client.on('message', msg => {
 		.setColor('#ff9900')
 		.setTitle('The Shy 找女朋友')
 		.setURL('https://discord.js.org/')
-		.setAuthor('The Chicken 咕咕哒', 'https://5b0988e595225.cdn.sohucs.com/images/20191031/f6b1282ab0fb407689461b8875557db0.jpeg', 'https://thechicken.ca/')
+		.setAuthor('------', 'https://5b0988e595225.cdn.sohucs.com/images/20191031/f6b1282ab0fb407689461b8875557db0.jpeg', 'https://thechicken.ca/')
 		.setDescription('有趣的灵魂，寻找另一个有趣的灵魂')
 		.setThumbnail('https://5b0988e595225.cdn.sohucs.com/images/20191031/f6b1282ab0fb407689461b8875557db0.jpeg')
 		.addFields(
