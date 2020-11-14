@@ -50,9 +50,17 @@ client.on('message', msg => {
 		}
 		
 		if(msg.content.indexOf('test') !== -1){
-			const ROLE_ASSIGN_CHANNEL_ID = "777267043161473045";
-			//var role = msg.guild.roles.find(role => role.name === "Among Us");
+			const ROLE_ASSIGN_CHANNEL_ID = "775196687408431135";
+			var role = msg.guild.roles.find(role => role.name === "Among Us");
+			
+			if (typeof role === undefined) {
+			    msg.channel.send("no role named among us")
+			} else {
+			    msg.channel.send(role.name)
+			}
+			
 			msg.channel.send(msg.channel.id == ROLE_ASSIGN_CHANNEL_ID)
+			
 		}
 
 
