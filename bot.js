@@ -49,18 +49,7 @@ client.on('message', msg => {
 			msg.reply('为所欲为' )
 		}
 		
-		if(msg.content.indexOf('test') !== -1){
-			const ROLE_ASSIGN_CHANNEL_ID = "775196687408431135";
-			let role = msg.guild.roles.get('Among Us');
-			if (!role) {
-			    msg.channel.send("no role named among us")
-			} else {
-			    msg.channel.send(role.name)
-			}
-			
-			msg.channel.send(msg.channel.id == ROLE_ASSIGN_CHANNEL_ID)
-			
-		}
+		
 
 
 // 		//不是很会用这个 request......
@@ -73,6 +62,20 @@ client.on('message', msg => {
 // 				 msg.reply(body);
 // 			});   
 // 		}
+	}
+	
+	
+	if(msg.content.indexOf('test') !== -1){
+		const ROLE_ASSIGN_CHANNEL_ID = "775196687408431135";
+		msg.channel.send(msg.channel.id == ROLE_ASSIGN_CHANNEL_ID);
+		let role = msg.guild.roles.get('Among Us');
+		if (!role) {
+	    		msg.channel.send("no role named among us")
+		} else {
+	    		msg.channel.send(role.name)
+		}
+		
+
 	}
 	
 // 	//为用户添加角色
