@@ -68,11 +68,11 @@ client.on('message', msg => {
 	if(msg.content.indexOf('test') !== -1){
 		const ROLE_ASSIGN_CHANNEL_ID = "775196687408431135";
 		msg.channel.send(msg.channel.id == ROLE_ASSIGN_CHANNEL_ID);
-		var role = msg.guild.roles.cache..find(role => role.name === 'Among Us');
-		if (!role) {
+		var theRole = msg.guild.roles.cache..find(role => role.name === 'Among Us');
+		if (!theRole) {
 	    		msg.channel.send("no role named among us")
 		} else {
-	    		msg.channel.send(role.name)
+	    		msg.channel.send(theRole.name)
 		}
 		
 
