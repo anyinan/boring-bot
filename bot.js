@@ -132,6 +132,23 @@ client.on('message', msg => {
 		.setFooter('无聊机器人百科');
 		msg.channel.send(embed);
 	}
+	
+	if(msg.content.indexOf('TheShy相亲') !== -1) {
+		const embed = new Discord.MessageEmbed()
+		.setColor('#ff9900')
+		.setTitle('The Shy 找女朋友')
+		.setURL('https://discord.js.org/')
+		.setAuthor('The Chicken 咕咕哒', 'https://5b0988e595225.cdn.sohucs.com/images/20191031/f6b1282ab0fb407689461b8875557db0.jpeg', 'https://thechicken.ca/')
+		.setDescription('有趣的灵魂，寻找另一个有趣的灵魂')
+		.setThumbnail('https://5b0988e595225.cdn.sohucs.com/images/20191031/f6b1282ab0fb407689461b8875557db0.jpeg')
+		.addFields(
+			{ name: '附上我的照片', value: '--->', inline: true },
+		)
+		.setImage('https://img5.mtime.cn/CMS/News/2019/08/21/180647.42489992_620X620.jpg')
+		.setTimestamp()
+		.setFooter('有趣的妹子请私信我');
+		msg.channel.send(embed);
+	}
 
 
 
