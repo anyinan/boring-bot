@@ -69,7 +69,7 @@ client.on('message', msg => {
 			.setDescription(descrip);
 			
 			msg.channel.send(embed);
-			msg.react('0️⃣');
+				.then(message => message.react('0️⃣'))
 		}
 
 	}
