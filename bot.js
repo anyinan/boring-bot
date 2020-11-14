@@ -138,13 +138,13 @@ client.on('message', msg => {
 		.setColor('#ff9900')
 		.setTitle('The Shy 找女朋友')
 		.setURL('https://discord.js.org/')
-		.setAuthor('------', 'https://5b0988e595225.cdn.sohucs.com/images/20191031/f6b1282ab0fb407689461b8875557db0.jpeg', 'https://thechicken.ca/')
-		.setDescription('有趣的灵魂，寻找另一个有趣的灵魂')
+		.setAuthor('点这里加我的微信', 'https://cdn.discordapp.com/attachments/775172912734142547/777104297175285770/20201114173428.jpg', 'https://cdn.discordapp.com/attachments/775172912734142547/777104657537171466/20201114173615.jpg')
+		.setDescription('一个有趣的灵魂，寻找另一个有趣的灵魂')
 		.setThumbnail('https://5b0988e595225.cdn.sohucs.com/images/20191031/f6b1282ab0fb407689461b8875557db0.jpeg')
 		.addFields(
 			{ name: '附上我的照片', value: '--->', inline: true },
 		)
-		.setImage('https://img5.mtime.cn/CMS/News/2019/08/21/180647.42489992_620X620.jpg')
+		.setImage('https://cdn.discordapp.com/attachments/775172912734142547/777104293320720384/20201114173422.jpg')
 		.setTimestamp()
 		.setFooter('有趣的妹子请私信我');
 		msg.channel.send(embed);
