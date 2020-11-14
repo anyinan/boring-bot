@@ -73,10 +73,10 @@ client.on('message', msg => {
 	if (msg.channel.id == ROLE_ASSIGN_CHANNEL_ID) {
 		//检查是否为添加角色指令
 		if(msg.content.substring(0, ROLE_ASSIGN_KEYWORD.length) == ROLE_ASSIGN_KEYWORD){
-			var roleName = msg.content.substring(ROLE_ASSIGN_KEYWORD.length)
+			var roleName = msg.content.substring(ROLE_ASSIGN_KEYWORD.length).trim()
 			var theRole = msg.guild.roles.cache.find(role => role.name === roleName);
 			if (!theRole) {
-				msg.reply("亲，服务器里还没有叫 " + roleName + " 的角色。")
+				msg.reply("服务器里还没有叫 " + roleName + " 的标签。")
 			} else {
 				msg.member.addRole(theRole); 
 				msg.reply("你现在有了新的标签 " + theRole.name)
