@@ -81,10 +81,12 @@ client.on('message', msg => {
 	//为用户添加角色
 
 	//在discord 设置 -> 外观 -> 启用开发者模式， 然后右键需要检测的频道，复制ID
-	const ROLE_ASSIGN_CHANNEL_ID = "777267043161473045";
+	//const ROLE_ASSIGN_CHANNEL_ID = "777267043161473045";
 	const ROLE_ASSIGN_KEYWORD = "role";
+	const ROLE_REMOVE_KEYWORD = "rmrole";
 
-	if (msg.channel.id == ROLE_ASSIGN_CHANNEL_ID) {
+	//if (msg.channel.id == ROLE_ASSIGN_CHANNEL_ID) {
+	if (true) {
 		//检查是否为添加角色指令
 		if(msg.content.substring(0, ROLE_ASSIGN_KEYWORD.length) == ROLE_ASSIGN_KEYWORD){
 			var roleName = msg.content.substring(ROLE_ASSIGN_KEYWORD.length).trim()
@@ -94,6 +96,16 @@ client.on('message', msg => {
 			} else {
 				msg.member.roles.add(theRole); 
 				msg.reply("你现在有了新的标签 " + theRole.name)
+			}
+		}
+		if(msg.content.substring(0, ROLE_REMOVE_KEYWORD.length) == ROLE_REMOVE_KEYWORD){
+			var roleName = msg.content.substring(ROLE_REMOVE_KEYWORD.length).trim()
+			var theRole = msg.guild.roles.cache.find(role => role.name === roleName);
+			if (!theRole) {
+				msg.reply("没有叫 " + roleName + " 的标签。")
+			} else {
+				msg.member.roles.add(theRole); 
+				msg.reply("已删除标签 " + theRole.name)
 			}
 		}
 	}
