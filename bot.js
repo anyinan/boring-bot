@@ -104,7 +104,7 @@ client.on('message', msg => {
 			if (!theRole) {
 				msg.reply("没有叫 " + roleName + " 的标签。")
 			} else {
-				msg.member.roles.add(theRole); 
+				msg.member.roles.remove(theRole); 
 				msg.reply("已删除标签 " + theRole.name)
 			}
 		}
