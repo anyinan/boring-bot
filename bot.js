@@ -34,7 +34,7 @@ client.on('message', msg => {
 	//当机器人被提及
 	if (msg.mentions.has(client.user)) {
 		client.user.setActivity("别的机器人干活",  {
-						  type: "STREAMING"); 
+						  type: "WATCHING"); 
 						});
 		
 		Object.keys(dict).forEach(key => {
