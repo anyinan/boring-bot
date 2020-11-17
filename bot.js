@@ -6,8 +6,9 @@ const client = new Discord.Client({disableEveryone: false});
 
 // 連上線時的事件
 client.on('ready', () => {
-    console.log(`Logged in as ${client.user.tag}!`);
-    console.log(`ready as Ann`);
+	console.log(`Logged in as ${client.user.tag}!`);
+	console.log(`ready as Ann`);
+	client.user.setActivity("别的机器人干活", WATCHING); 
 });
 
 //Bot聊天回复列表
