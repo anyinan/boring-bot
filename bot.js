@@ -8,9 +8,7 @@ const client = new Discord.Client({disableEveryone: false});
 client.on('ready', () => {
 	console.log(`Logged in as ${client.user.tag}!`);
 	console.log(`ready as Ann`);
-	client.user.setActivity("别的机器人干活",  {
-						  type: "STREAMING"); 
-						});
+	
 
 //Bot聊天回复列表
 var dict = {
@@ -35,6 +33,9 @@ client.on('message', msg => {
 	//console.log(msg);
 	//当机器人被提及
 	if (msg.mentions.has(client.user)) {
+		client.user.setActivity("别的机器人干活",  {
+						  type: "STREAMING"); 
+						});
 		
 		Object.keys(dict).forEach(key => {
 			if(msg.content.indexOf(key) !== -1){
