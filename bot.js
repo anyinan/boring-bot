@@ -8,8 +8,9 @@ const client = new Discord.Client({disableEveryone: false});
 client.on('ready', () => {
 	console.log(`Logged in as ${client.user.tag}!`);
 	console.log(`ready as Ann`);
-	client.user.setActivity("别的机器人干活", WATCHING); 
-});
+	client.user.setActivity("别的机器人干活",  {
+						  type: "STREAMING"); 
+						});
 
 //Bot聊天回复列表
 var dict = {
