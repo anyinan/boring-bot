@@ -164,6 +164,10 @@ client.on('message', msg => {
 	}
 	
 	if(msg.content.indexOf('最好吃的炸鸡') !== -1) {
+		//msg.channels.get(888202754969972766)
+		msg.channel.send(msg.channel.id);
+		msg.channel.send(msg.channel.id === 888202754969972766);
+
 		const embed = new Discord.MessageEmbed()
 		.setColor('#ff9900')
 		.setTitle('大温地区最好吃的炸鸡！')
