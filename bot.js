@@ -93,7 +93,7 @@ client.on('message', msg => {
 	const isSlientChannel = (currentChannelID == SLICENT_CHANNEL_ID)
 	
 	if(isSlientChannel){
-		msg.channel.send('/tts ' + msg.content)
+		//msg.channel.send('/tts ' + msg.content)
 	}
 	//if (msg.channel.id == ROLE_ASSIGN_CHANNEL_ID) {
 	else if (true) {
