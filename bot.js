@@ -90,7 +90,7 @@ client.on('message', msg => {
 	const SLICENT_CHANNEL_ID = 888202754969972766;
 	
 	const currentChannelID = msg.channel.id;
-	const isSlientChannel = (currentChannelID == 888202754969972766)
+	const isSlientChannel = (currentChannelID == SLICENT_CHANNEL_ID)
 	
 	if(isSlientChannel){
 		msg.channel.send('/tts ' + msg.content)
