@@ -93,8 +93,8 @@ client.on('message', msg => {
 	
 	if(isSlientChannel){
 		if (!msg.author.bot){
-			msg.channel.send(msg.channel, {
- 			tts: true
+			msg.channel.send(msg.content, {
+ 				tts: true
 			});
 		}
 	}
