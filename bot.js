@@ -166,7 +166,9 @@ client.on('message', msg => {
 	if(msg.content.indexOf('最好吃的炸鸡') !== -1) {
 		//msg.channels.get(888202754969972766)
 		msg.channel.send(msg.channel.id);
-		msg.channel.send(msg.channel.id === 888202754969972766);
+		const currentChannelID = msg.channel.id;
+		const isSlientChannel = currentChannelID == 888202754969972766
+		msg.channel.send(isSlientChannel);
 
 		const embed = new Discord.MessageEmbed()
 		.setColor('#ff9900')
