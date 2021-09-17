@@ -3,7 +3,6 @@ const Discord = require('discord.js');
 
 //const { token } = require('./token.json');
 const client = new Discord.Client({disableEveryone: false});
-
 // 連上線時的事件
 client.on('ready', () => {
 	console.log(`Logged in as ${client.user.tag}!`);
@@ -93,7 +92,11 @@ client.on('message', msg => {
 	const isSlientChannel = (currentChannelID == SLICENT_CHANNEL_ID)
 	
 	if(isSlientChannel){
-		//msg.channel.send('/tts ' + msg.content)
+		if (!msg.author.bot){
+			msg.channel.send(msg.channel, {
+ 			tts: true
+			});
+		}
 	}
 	//if (msg.channel.id == ROLE_ASSIGN_CHANNEL_ID) {
 	else if (true) {
