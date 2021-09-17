@@ -87,9 +87,16 @@ client.on('message', msg => {
 	//const ROLE_ASSIGN_CHANNEL_ID = "777267043161473045";
 	const ROLE_ASSIGN_KEYWORD = "role";
 	const ROLE_REMOVE_KEYWORD = "rmrole";
-
+	const SLICENT_CHANNEL_ID = 888202754969972766;
+	
+	const currentChannelID = msg.channel.id;
+	const isSlientChannel = (currentChannelID == 888202754969972766)
+	
+	if(isSlientChannel){
+		msg.channel.send('/tts ' + msg.content)
+	}
 	//if (msg.channel.id == ROLE_ASSIGN_CHANNEL_ID) {
-	if (true) {
+	else if (true) {
 		//检查是否为添加角色指令
 		if(msg.content.substring(0, ROLE_ASSIGN_KEYWORD.length) == ROLE_ASSIGN_KEYWORD){
 			var roleName = msg.content.substring(ROLE_ASSIGN_KEYWORD.length).trim()
@@ -164,12 +171,6 @@ client.on('message', msg => {
 	}
 	
 	if(msg.content.indexOf('最好吃的炸鸡') !== -1) {
-		//msg.channels.get(888202754969972766)
-		msg.channel.send(msg.channel.id);
-		const currentChannelID = msg.channel.id;
-		const isSlientChannel = currentChannelID == 888202754969972766
-		msg.channel.send(isSlientChannel);
-
 		const embed = new Discord.MessageEmbed()
 		.setColor('#ff9900')
 		.setTitle('大温地区最好吃的炸鸡！')
