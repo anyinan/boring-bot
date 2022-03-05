@@ -9,7 +9,50 @@ client.on('ready', () => {
 	console.log(`ready as Ann`);
 	client.user.setActivity("别的机器人干活", {type: "WATCHING"}); 
 });
-	
+
+/*
+ 文字转语音功能 discord 部分
+*/
+
+var myVoiceChannel;
+
+/*
+ 文字转语音功能 AZURE 部分
+*/
+
+const { SpeechSynthesisOutputFormat, SpeechConfig, AudioConfig, SpeechSynthesizer } = require("microsoft-cognitiveservices-speech-sdk");
+
+function synthesizeSpeech(text) {
+	const speechConfig = SpeechConfig.fromSubscription("process.env.AZURE_TOKEN", "process.env.AZURE_REGION_CODE");
+	const audioConfig = AudioConfig.fromAudioFileOutput("output.mp3");
+	//语音合成语言
+	speechConfig.speechSynthesisLanguage = "zh-CN";
+
+	const synthesizer = new SpeechSynthesizer(speechConfig, audioConfig);
+	//合成语音文件
+	synthesizer.speakTextAsync(
+		text,
+		result => {
+			if (result) {
+				console.log(JSON.stringify(result));
+			}
+			// 机器人进入语音频道
+			myVoiceChannel.join()
+				.then(connection => {
+					//播放合成好的语音文件
+					dispatcher = connection.play('./output.mp3');
+					dispatcher.on("end", end => { myVoiceChannel.leave() });
+				})
+				.catch(console.error);
+			synthesizer.close();
+		},
+		error => {
+			console.log(error);
+			synthesizer.close();
+		});
+}
+
+
 
 //Bot聊天回复列表
 var dict = {
@@ -92,11 +135,11 @@ client.on('message', msg => {
 	const isSlientChannel = (currentChannelID == SLICENT_CHANNEL_ID)
 	
 	if(isSlientChannel){
-		if (!msg.author.bot){
-			msg.channel.send(msg.content, {
- 				tts: true
-			});
-		}
+		//if (!msg.author.bot){
+		//	msg.channel.send(msg.content, {
+ 		//		tts: true
+		//	});
+		//}
 	}
 	//if (msg.channel.id == ROLE_ASSIGN_CHANNEL_ID) {
 	else if (true) {
@@ -150,17 +193,6 @@ client.on('message', msg => {
 	
 	if(msg.content.indexOf('好无聊啊') !== -1) {
 		msg.reply('指令列表：你是、你真、水果摊、生日快乐' )
-	}
-	
-	var voiceChannel;
-	
-	if(msg.content.indexOf('#喇叭') !== -1) {
-		voiceChannel = msg.member.voice.channel;
-		voiceChannel.join().then(connection =>{ENTER CODE HERE}).catch(err => console.log(err));
-	}
-	
-	if(msg.content.indexOf('#喇叭停') !== -1) {
-		voiceChannel.leave();
 	}
 	
 	if(msg.content.indexOf('看看卡片效果') !== -1) {
