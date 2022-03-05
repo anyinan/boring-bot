@@ -23,7 +23,7 @@ var myVoiceChannel;
 const { SpeechSynthesisOutputFormat, SpeechConfig, AudioConfig, SpeechSynthesizer } = require("microsoft-cognitiveservices-speech-sdk");
 
 function synthesizeSpeech(text) {
-	const speechConfig = SpeechConfig.fromSubscription("process.env.AZURE_TOKEN", "process.env.AZURE_REGION_CODE");
+	const speechConfig = SpeechConfig.fromSubscription(process.env.AZURE_TOKEN, process.env.AZURE_REGION_CODE);
 	const audioConfig = AudioConfig.fromAudioFileOutput("output.mp3");
 	//语音合成语言
 	speechConfig.speechSynthesisLanguage = "zh-CN";
