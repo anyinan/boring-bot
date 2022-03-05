@@ -151,12 +151,14 @@ client.on('message', msg => {
 	if(msg.content.indexOf('好无聊啊') !== -1) {
 		msg.reply('指令列表：你是、你真、水果摊、生日快乐' )
 	}
+	
 	var voiceChannel；
 	
 	if(msg.content.indexOf('#喇叭') !== -1) {
 		voiceChannel = msg.member.voice.channel;
 		voiceChannel.join().then(connection =>{ENTER CODE HERE}).catch(err => console.log(err));
 	}
+	
 	if(msg.content.indexOf('#喇叭停') !== -1) {
 		voiceChannel.leave();
 	}
@@ -227,20 +229,6 @@ var roleRef = {
 	"2️⃣" : "777116219064188948" ,
 	"3️⃣" : "777119364813553685" ,
 };
-
-// client.on('messageReactionAdd', (reaction, user) => {
-//         let message = reaction.message, emoji = reaction.emoji;
-// 	const ROLE_ASSIGN_MSG_ID = "777298548961312799";
-// 	if(message.id == ROLE_ASSIGN_MSG_ID){
-// 		Object.keys(roleRef).forEach(key => {
-// 			if(emoji.name == key){
-// 				message.guild.fetchMember(user.id).then(member => {
-// 					member.addRole(roleRef[KEY]);
-// 				});
-// 			}
-// 		})
-// 	}
-// });
 
 
 client.login(process.env.BOT_TOKEN);
