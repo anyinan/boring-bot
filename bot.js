@@ -151,6 +151,14 @@ client.on('message', msg => {
 	if(msg.content.indexOf('好无聊啊') !== -1) {
 		msg.reply('指令列表：你是、你真、水果摊、生日快乐' )
 	}
+	var voiceChannel；
+	if(msg.content.indexOf('#喇叭') !== -1) {
+		voiceChannel = msg.member.voice.channel;
+		voiceChannel.join().then(connection =>{ENTER CODE HERE}).catch(err => console.log(err));
+	}
+	if(msg.content.indexOf('#喇叭停') !== -1) {
+		voiceChannel.leave();
+	}
 	
 	if(msg.content.indexOf('看看卡片效果') !== -1) {
 		const embed = new Discord.MessageEmbed()
