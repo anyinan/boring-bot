@@ -152,7 +152,7 @@ client.on('message', msg => {
 		msg.reply('指令列表：你是、你真、水果摊、生日快乐' )
 	}
 	
-	var voiceChannel；
+	var voiceChannel;
 	
 	if(msg.content.indexOf('#喇叭') !== -1) {
 		voiceChannel = msg.member.voice.channel;
