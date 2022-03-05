@@ -75,6 +75,17 @@ var animalEmojis 	= ['🐭','🐹','🐰','🦊','🐻','🐼','🐨','🐯','�
 // 當 Bot 接收到訊息時的事件
 client.on('message', msg => {
 	//console.log(msg);
+	// 文字转语音功能
+	// 限定在特定的频道 ， 测试ID 775196687408431135
+	var channelID = "888202754969972766"; //频道：说不了话的人
+
+	if (msg.channel.id === channelID) {
+		myVoiceChannel = msg.member.voice.channel;
+		if (myVoiceChannel) {
+				synthesizeSpeech(msg.author.username + "说：" + msg.content);
+		}
+    	}
+	
 	//当机器人被提及
 	if (msg.mentions.has(client.user)) {
 		
