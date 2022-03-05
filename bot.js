@@ -266,7 +266,5 @@ function synthesizeSpeech() {
         });
 }
 
-synthesizeSpeech();
-
 client.login(process.env.BOT_TOKEN);
 //client.login(token);
