@@ -27,6 +27,7 @@ function synthesizeSpeech(text) {
 	const audioConfig = AudioConfig.fromAudioFileOutput("output.mp3");
 	//语音合成语言
 	speechConfig.speechSynthesisLanguage = "zh-CN";
+	speechConfig.speechSynthesisVoiceName = "zh-CN-YunxiNeural";
 
 	const synthesizer = new SpeechSynthesizer(speechConfig, audioConfig);
 	//合成语音文件
