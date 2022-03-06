@@ -85,6 +85,7 @@ client.on('message', msg => {
 		if (myVoiceChannel) {
 				synthesizeSpeech(msg.author.username + "说：" + msg.content);
 		}
+		return;
     	}
 	
 	//当机器人被提及
