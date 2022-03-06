@@ -117,9 +117,9 @@ client.on('message', msg => {
 				synthesizeSpeechFemale(msg.member.displayName + "说：" + msg.content.substring(3, msg.content.length));
 			} else {
 				synthesizeSpeech(msg.member.displayName + "说：" + msg.content);
-            }
-			
+            		}
 		}
+		return;
     	}
 	
 	//当机器人被提及
