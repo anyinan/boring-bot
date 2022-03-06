@@ -83,7 +83,7 @@ client.on('message', msg => {
 	if (msg.channel.id === channelID) {
 		myVoiceChannel = msg.member.voice.channel;
 		if (myVoiceChannel) {
-				synthesizeSpeech(msg.author.username + "说：" + msg.content);
+				synthesizeSpeech(msg.member.displayName + "说：" + msg.content);
 		}
 		return;
     	}
