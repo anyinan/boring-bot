@@ -53,6 +53,36 @@ function synthesizeSpeech(text) {
 		});
 }
 
+function synthesizeSpeechFemale(text) {
+	const speechConfig = SpeechConfig.fromSubscription("ad3e21ea56c1423aa528ac2f1c6f700f", "westus");
+	const audioConfig = AudioConfig.fromAudioFileOutput("output.mp3");
+	//语音合成语言
+	speechConfig.speechSynthesisLanguage = "zh-CN";
+	speechConfig.speechSynthesisVoiceName = "zh-CN-XiaoxiaoNeural";
+
+	const synthesizer = new SpeechSynthesizer(speechConfig, audioConfig);
+	//合成语音文件
+	synthesizer.speakTextAsync(
+		text,
+		result => {
+			if (result) {
+				console.log(JSON.stringify(result));
+			}
+			// 机器人进入语音频道
+			myVoiceChannel.join()
+				.then(connection => {
+					//播放合成好的语音文件
+					dispatcher = connection.play('./output.mp3');
+					dispatcher.on("end", end => { myVoiceChannel.leave() });
+				})
+				.catch(console.error);
+			synthesizer.close();
+		},
+		error => {
+			console.log(error);
+			synthesizer.close();
+		});
+}
 
 
 //Bot聊天回复列表
@@ -83,9 +113,13 @@ client.on('message', msg => {
 	if (msg.channel.id === channelID) {
 		myVoiceChannel = msg.member.voice.channel;
 		if (myVoiceChannel) {
+			if (msg.content.indexOf("#fe") !== -1) {
+				synthesizeSpeechFemale(msg.member.displayName + "说：" + msg.content.substring(3, msg.content.length));
+			} else {
 				synthesizeSpeech(msg.member.displayName + "说：" + msg.content);
+            }
+			
 		}
-		return;
     	}
 	
 	//当机器人被提及
