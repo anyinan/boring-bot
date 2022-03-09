@@ -134,7 +134,7 @@ function synthesizeSpeech(msgProcess, tts_text) {
 	isTtsPlaying = true;
 
 	//语音合成语言
-	const speechConfig = SpeechConfig.fromSubscription(SYNTHESIZER_TOKEN, SYNTHESIZER_REGION_CODE);
+	const speechConfig = SpeechConfig.fromSubscription(process.env.AZURE_TOKEN, process.env.AZURE_REGION_CODE);
 	const audioConfig = AudioConfig.fromAudioFileOutput(OutputFileName);
 
 	//ssml 格式生成
