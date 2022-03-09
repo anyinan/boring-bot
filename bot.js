@@ -164,6 +164,7 @@ function synthesizeSpeech(msgProcess, tts_text) {
 					//播放合成好的语音文件
 					dispatcher = connection.play(OutputFileName);
 					dispatcher.on("finish", end => {
+						console.log('audio.mp3 has finished playing!')
 						//队列处理
 						if (ttsQueue.length > 0) {
 							synthesizeSpeech(msgPreProcess, ttsQueue.shift());
