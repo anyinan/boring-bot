@@ -32,6 +32,7 @@ var animalEmojis = ['🐭', '🐹', '🐰', '🦊', '🐻', '🐼', '🐨', '�
 
 var ttsQueue = [];
 var isTtsPlaying = false;
+var myVoiceChannel;
 const OutputFileName = "output.mp3";
 
 //限定在特定的频道 ， 测试ID 775196687408431135 说不了话的人 888202754969972766
@@ -187,8 +188,6 @@ function synthesizeSpeech(msgProcess, tts_text) {
 client.on('message', msg => {
 
 	// 文字转语音功能
-	var myVoiceChannel;
-
 	if (msg.channel.id === TextToSpeechChannelID && !msg.author.bot) {
 		myVoiceChannel = msg.member.voice.channel;
 		if (myVoiceChannel) {
