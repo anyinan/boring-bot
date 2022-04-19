@@ -145,8 +145,8 @@ function synthesizeSpeech(msgProcess, tts_text) {
 	
 	var speakerString;
 	
-	if(!prevSpeaker || currSpeaker != prevSpeaker){
-		prevSpeaker = currSpeaker
+	if(prevSpeaker === null || prevSpeaker !== currSpeaker){
+		prevSpeaker = currSpeaker;
 		speakerString = currSpeaker + "说: ";
 	}else{
 		speakerString = "";
