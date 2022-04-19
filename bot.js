@@ -33,6 +33,7 @@ var animalEmojis = ['🐭', '🐹', '🐰', '🦊', '🐻', '🐼', '🐨', '�
 var ttsQueue = [];
 var isTtsPlaying = false;
 var myVoiceChannel;
+var prevSpeaker;
 const OutputFileName = "output.mp3";
 
 //限定在特定的频道 ， 测试ID 775196687408431135 说不了话的人 888202754969972766
@@ -140,7 +141,18 @@ function synthesizeSpeech(msgProcess, tts_text) {
 
 	//ssml 格式生成
 	const result = msgProcess(tts_text);
-	const syn_name = tts_text.member.displayName + "说: ";
+	const currSpeaker = tts_text.member.displayName;
+	
+	var speakerString;
+	
+	if(!prevSpeaker || currSpeaker != prevSpeaker){
+		prevSpeaker = currSpeaker
+		speakerString = currSpeaker + "说: ";
+	}else{
+		speakerString = "";
+	}
+		
+	const syn_name = speakerString;
 	const ssml = "<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" "
 		+ "xmlns:mstts=\"https://www.w3.org/2001/mstts\" xml:lang=\"zh-CN\" >"
 		+ "\n\t<voice name=\"" + result.voiceName + "\">"
